@@ -72,31 +72,36 @@ render(){
     const tweetURL =`https://twitter.com/intent/tweet?text=${quote.quote} - ${quote.author}`;
     
     return(
-        <div className="wrapper d-flex  align-items-center justify-content-center">
-            <div className="col-6 col-sm-3 box p-4 rounded" id="quote-box">
+      <div className="container-fluid">
+        <div className="d-flex align-items-center justify-content-center wrapper">
+            <div className="col-12 col-md-6 col-md-3 col box p-4 rounded" id="quote-box">
                 { 
                     quote && (
-                    <div className="mb-4 .container-sm">
-                        <p id="text" className="quote"><strong><i className="fas fa-quote-left fa-2x"></i> {quote.quote}</strong></p>
-                        
-                        <div className = "writer" >
-                          <cite className="d-block text-center" id="author" className="author">
+                    <div className="d-flex flex-column align-items-center justify-content-center mb-4 text-nowrap">
+                        <p id="text" className="quote text-wrap">
+                          <strong>
+                            <i className="fas fa-quote-left fa-2x"></i> 
+                            {quote.quote}
+                          </strong>
+                        </p>
+                        <div className="writer">
+                          <cite className="d-block text-center" className="author">
                           - {quote.author}
                           </cite>
                         </div>                        
                     </div>
                     )  
                 }
-    
             
                 <div className="d-flex justify-content-between buttons">
-                    <a className="btn btn-primary" target="_blank" href = {tweetURL} id="tweet-quote"><i className="fab fa-twitter"></i> Tweet</a>
-                    <button className="btn  btn-outline-primary" onClick={this.getRandomIndex} id="new-quote">
-                    Get Quote
+                    <a className="btn btn-primary btn-lg" target="blank" href={tweetURL} id="tweet-quote"><i className="fab fa-twitter"></i> Tweet</a>
+                    <button className="btn btn-success btn-lg" onClick={this.getRandomIndex} id="new-quote">
+                      Get Quote
                     </button>
                 </div>
             </div>
         </div>
+      </div>
     )
   }
 } 
